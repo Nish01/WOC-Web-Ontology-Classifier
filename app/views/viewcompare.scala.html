@@ -1,0 +1,115 @@
+@(message: String, message2: String, elements: List[String], selected: List[String], allfeatures: List[String], commonfeatures: List[String], uncommonfeatures: List[String])
+
+@import helper._
+
+@main(title = "Web Ontology Classifier/Viewer") {
+    
+   
+      
+       <div class="topdivone">
+         <div class="leftelementtop">
+         
+        <h1 id="container">List of Taxa:</h1>
+       
+       
+      @form(action = routes.ApplicationCompare.getResults, args = 'id -> "carform") {  
+      
+		<select id="cars" name="cars" multiple="multiple" size="35">
+
+		@for(index <- 0 until elements.size()){
+		    
+	<option value="@elements(index)" name="selected">@elements(index)</option>
+		
+		}
+		
+      
+      <p class="buttons">
+         
+             <input type="submit">
+        <p>
+      
+      }
+      
+      
+		 </div>
+     
+      <div class="rightelementtop">
+
+		<h1>Common Features</h1>
+      
+ 
+      
+		<ul>
+
+		@for(index <- 0 until commonfeatures.size()){
+		    
+		    <li>
+		    	<span>@commonfeatures(index)</span>
+			</li>
+		
+		}
+		
+		</ul>
+	  
+     
+		 </div>
+     
+      </div>
+      
+       <div class="topdiv">
+    	  <div class="leftelement">
+
+	   <h1>@(message)</h1>
+      
+ 
+      
+		<ul>
+
+		@for(index <- 0 until selected.size()){
+		    
+		    <li>
+		    	<span>@selected(index)</span>
+			</li>
+		
+		}
+		
+		</ul>
+		 </div>
+		  <div class="middleelement">
+		<h1>@(message2)</h1>
+      
+ 
+      
+		<ul>
+
+		@for(index <- 0 until allfeatures.size()){
+		    
+		    <li>
+		    	<span>@allfeatures(index)</span>
+			</li>
+		
+		}
+		
+		</ul>
+		 </div>
+		  <div class="rightelement">
+		  <h1>UnCommon Features</h1>
+		
+		<ul>
+
+		@for(index <- 0 until uncommonfeatures.size()){
+		    
+		    <li>
+		    	<span>@uncommonfeatures(index)</span>
+			</li>
+		
+		}
+		
+		</ul>
+		
+		
+		 </div>
+		  </div>
+   
+
+}

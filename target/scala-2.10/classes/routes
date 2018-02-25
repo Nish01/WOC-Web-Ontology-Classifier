@@ -1,0 +1,45 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                     		controllers.Application.home()
+
+POST	/uploadFile					controllers.Application.uploadFile()
+
+POST	/uploadFileOnt					controllers.ApplicationReverse.uploadFile()
+
+POST	/uploadFileComp						controllers.ApplicationCompare.uploadFile()
+
+POST	/uploadFileBoth						controllers.ApplicationBoth.uploadFile()
+
+GET     /results                          controllers.Application.choose()
+
+GET     /choosefile                         controllers.ApplicationReverse.choosefile()
+
+GET     /choosefileCompare			controllers.ApplicationCompare.choosefileCompare()	
+
+GET     /choosefileBoth			controllers.ApplicationBoth.chooseBoth()	
+
+POST	/view						controllers.Application.getResults()
+
+GET	/results					controllers.Application.getResults()
+
+POST	/viewResults						controllers.ApplicationReverse.getResults()
+
+GET	/findresults					controllers.ApplicationReverse.getResults()
+
+POST	/viewCompResults 				controllers.ApplicationCompare.getResults()
+
+GET	/findCompresults					controllers.ApplicationCompare.getResults()
+
+POST	/viewBothResults 				controllers.ApplicationBoth.getResults()
+
+GET	/findBothresults					controllers.ApplicationBoth.getResults()
+
+POST	/viewBothFeatureResults				controllers.ApplicationBoth.getResultsBoth()
+
+GET	/findBothFeatureresults					controllers.ApplicationBoth.getResultsBoth()
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)

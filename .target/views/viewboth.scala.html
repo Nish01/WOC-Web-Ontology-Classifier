@@ -1,0 +1,289 @@
+@(message: String, messagef: String, count: Integer, beefoundcount: Integer, selectedfeatcount: Integer, 
+features: List[String], selected: List[String], results: List[String], selectedElements: List[String], 
+allFeatures: List[String], commonFeatCount: Integer, Restfeaturescount: Integer)
+
+@import helper._
+
+@main(title = "Web Ontology Classifier/Viewer") {
+    
+    
+     <div class="topdiv">
+    	  <div class="leftelement">
+    
+    		<h1 id="container">Diagnostic Features:</h1>
+      
+      
+     		 @form(action = routes.ApplicationBoth.getResults, args = 'id -> "carform") {  
+      
+				<select id="cars" name="cars" multiple="multiple" size="40">
+
+				@for(index <- 0 until features.size()){
+		    
+				<option value="@features(index)" name="selected">@features(index)</option>
+		
+			}
+      
+      <p class="buttons">
+         
+             <input type="submit">
+      </p>
+        
+       <p>
+         Count: @(count)
+             
+        </p>
+      }
+      
+      
+      </div>
+      
+    <div class="middleelement">
+     
+      <h1 id="container">Elements:</h1>
+      
+      
+      @form(action = routes.ApplicationBoth.getResultsBoth, args = 'id -> "speciesform") {  
+      
+		<select id="species" name="species" multiple="multiple" size="40">
+
+		@for(index <- 0 until results.size()){
+		    
+	<option value="@results(index)" name="selected">@results(index)</option>
+		
+		}
+
+   	   	<p class="buttons">
+         
+             <input type="submit">
+    	  </p>
+       
+      }
+     
+		</div>
+		 
+      <div class="rightelement">
+		    
+		    
+      
+ 
+		<h4>Colour Identification Key:</h4>
+ 		<p> <span id="bluekey">Blue: </span> Selected/Common Features | Selected/Found Elements</p>
+ 		<p><span id="redkey">Red:</span> Common Features </p>
+ 		<p><span id="greenkey">Green:</span> Uncommon features to found elements</p>
+ 		
+ 		<br>
+ 		
+ 		<!-- <h1>@(message)</h1>
+		 -->
+		
+		<p id="images1" style="visibility: hidden;">
+		
+		  <img src="@routes.Assets.at("images/21.jpg")" alt="Known distribution of 
+		  Plesianthidium calescens and Plesianthidium richtersveldi" height="228" width="187">
+		  <br>
+		 Known distribution of 
+		  Plesianthidium calescens and Plesianthidium richtersveldi.
+		 </p>
+		 
+    	<p id="images2" style="visibility: hidden;">
+    	
+      	<img src="@routes.Assets.at("images/22.jpg")" alt="Plesianthidium richtersveldi. a. 
+     	 Female habitus. b. Female face. c. Male habitus. d. Male face" height="234" width="283">
+     	<br>
+     	Plesianthidium richtersveldi. a. 
+     	Female habitus. b. Female face. c. Male habitus. d. Male face.
+		 
+    
+   
+		    </p>
+		    
+		    
+         
+   </div>
+   </div>
+   
+  
+  
+  
+  
+       <div class="topdiv">
+    	  <div class="leftelement">
+    	  
+    	  
+		<textarea id="tx" rows="4" cols="50">
+
+</textarea>
+	  
+		 </div>
+		  <div class="middleelement" style="display: none;">
+		
+		 <h1>All Features</h1>
+      
+  
+      
+		
+		<ul>
+
+		@for(index <- 0 until allFeatures.size()){
+		    
+		    <li>
+		    	<span>@allFeatures(index)</span>
+			</li>
+		
+		}
+		
+		</ul>
+		
+		
+		<h1>Test</h1>
+      
+      @for(index <- 0 until selected.size()){
+		    
+		  
+		    	<span>@selected(index)</span>
+			
+		
+		}
+ 
+      
+		
+		 </div>
+		
+		  <div class="rightelement" style="display: none;">
+		 
+		<h1>Common Features</h1>
+      
+ 		<p id="demo"></p>
+ 		<p id="demo2">@beefoundcount</p>
+ 		<p id="featcount">@selectedfeatcount</p>
+ 		<p id="commonFeatCount">@commonFeatCount</p>
+ 		<p id="Restfeaturescount">@Restfeaturescount</p>
+ 		
+ 		
+ 		<h1>Selected Elements:</h1>
+		<ul>
+
+		@for(index <- 0 until selectedElements.size()){
+		    
+		    <li>
+		    	<span>@selectedElements(index)</span>
+			</li>
+		
+		}
+		
+		</ul>
+ 		
+ 		
+	
+		 </div>
+		  </div>  
+		  
+ <script>
+		  
+		  document.getElementById("bluekey").style.color = "blue";
+		  document.getElementById("redkey").style.color = "red";
+		  document.getElementById("greenkey").style.color = "green";
+		  
+		  
+		  var array1 = new Array();
+  
+			  //selected features colour
+		  
+		   var selectfeatcount = document.getElementById("featcount").innerHTML; 
+		
+		  if (selectfeatcount == -10) {
+    		
+			} else {
+  			
+  			
+  				for (i = 0; i < selectfeatcount; i++) { 
+  				  document.getElementById("cars").options.item(i).style.color = "blue";
+		 			 array1.push(cars[i].value);
+				}
+  			
+  			}
+		  
+		  
+		  //common features colour
+		  
+		   var commonfeaturecount = document.getElementById("commonFeatCount").innerHTML; 
+		   var combine = (1*commonfeaturecount) + (1*selectfeatcount);
+		
+		  if (commonfeaturecount == -10) {
+    		
+			} else {
+  			
+  			
+  				for (i = selectfeatcount; i < combine; i++) { 
+  				  document.getElementById("cars").options.item(i).style.color = "red";
+		 array1.push(cars[i].value);
+				}
+  			
+  			}
+		  
+		
+		
+		//The rest uncommon features
+		
+		  var Restfeatcount = document.getElementById("Restfeaturescount").innerHTML; 
+		   var combine2 = (1*commonfeaturecount) + (1*selectfeatcount) + (1*Restfeatcount);
+		
+		  if (Restfeatcount == -10) {
+    		
+			} else {
+  			
+  			
+  				for (i = combine; i < combine2; i++) { 
+  				  document.getElementById("cars").options.item(i).style.color = "green";
+		 
+				}
+  			
+  			}
+		
+		  document.getElementById("demo").innerHTML = combine2;
+		  
+		  
+		  //found bee species colour
+		  
+		  var beeFcount = document.getElementById("demo2").innerHTML; 
+		 // var beeCount = (beeFcount - 1);
+		
+		  if (beeFcount == -10) {
+    		
+			} else {
+  			
+  			
+  				for (i = 0; i < beeFcount; i++) { 
+  				  document.getElementById("species").options.item(i).style.color = "blue";
+		  var value = document.getElementById("species").options.item(i).value;
+		  
+		  if (value == "Plesianthidium_(Spinanthidium)_callescens_(Cockerell)_female" ||
+		  value == "Plesianthidium_(Spinanthidium)_callescens_(Cockerell)_male" ||
+		  value == "Plesianthidium_(Spinanthidium)_richtersveldi_sp.n_male" ||
+		   value == "Plesianthidium_(Spinanthidium)_richtersveldi_sp.n_female")
+		 {
+		 document.getElementById("images1").style.visibility = "visible"; 
+		 }
+		 
+		   if (value == "Plesianthidium_(Spinanthidium)_richtersveldi_sp.n_male" ||
+		   value == "Plesianthidium_(Spinanthidium)_richtersveldi_sp.n_female")
+		 {
+		 document.getElementById("images2").style.visibility = "visible"; 
+		 }
+		 
+				}
+  			
+  			}
+
+	document.getElementById("tx").innerHTML = array1;
+	document.getElementById("tx").select();
+	
+	//	var e = document.getElementById("demo2").innerHTML; 
+	//	var ded = e-220;
+		//document.getElementById("demo").innerHTML = "yes";
+		//document.getElementById("cars").options.item(ded).style.color = "blue";
+		  
+		  </script>
+   
+
+}

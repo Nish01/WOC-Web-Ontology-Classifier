@@ -1,0 +1,78 @@
+@(message: String, messagef: String, count: Integer, features: List[String], selected: List[String], results: List[String])
+
+@import helper._
+
+@main(title = "Web Ontology Classifier/Viewer") {
+    
+     <div class="topdiv">
+    	  <div class="leftelement">
+    
+    <h1 id="container">Diagnostic Features:</h1>
+      
+      
+      @form(action = routes.Application.getResults, args = 'id -> "carform") {  
+      
+		<select id="cars" name="cars" multiple="multiple" size="40">
+
+		@for(index <- 0 until features.size()){
+		    
+	<option value="@features(index)" name="selected">@features(index)</option>
+		
+		}
+		
+		
+		
+      
+      <p class="buttons">
+         
+             <input type="submit">
+        <p>
+        
+       <p>
+         Count: @(count)
+             
+        <p>
+      }
+      
+      
+      </div>
+      
+    <div class="middleelement">
+      <h1>@(message)</h1>
+      
+ 
+      
+		<ul>
+
+		@for(index <- 0 until selected.size()){
+		    
+		    <li>
+		    	<span>@selected(index)</span>
+			</li>
+		
+		}
+		
+		</ul>
+		</div>
+		 
+      <div class="rightelement">
+		    <h1>@(messagef)</h1>
+      
+ 
+      
+		<ul>
+
+		@for(index <- 0 until results.size()){
+		    
+		    <li>
+		    	<span>@results(index)</span>
+			</li>
+		
+		}
+		
+		</ul>
+         
+   </div>
+   </div>
+
+}

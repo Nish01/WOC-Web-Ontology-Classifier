@@ -1,0 +1,21 @@
+[0m[[0minfo[0m] [0mPackaging /Users/nishalmorar/Desktop/woc-master/target/scala-2.10/woc_2.10-1.0-sources.jar ...[0m
+[0m[[0mdebug[0m] [0mInput file mappings:[0m
+[0m[[0mdebug[0m] [0m	controllers/OWLExistentialReasonerImpl.java[0m
+[0m[[0mdebug[0m] [0m	  /Users/nishalmorar/Desktop/woc-master/app/controllers/OWLExistentialReasonerImpl.java[0m
+[0m[[0mdebug[0m] [0m	controllers/FillerTreatment.java[0m
+[0m[[0mdebug[0m] [0m	  /Users/nishalmorar/Desktop/woc-master/app/controllers/FillerTreatment.java[0m
+[0m[[0mdebug[0m] [0m	routes[0m
+[0m[[0mdebug[0m] [0m	  /Users/nishalmorar/Desktop/woc-master/conf/routes[0m
+[0m[[0mdebug[0m] [0m	controllers/ApplicationBoth.java[0m
+[0m[[0mdebug[0m] [0m	  /Users/nishalmorar/Desktop/woc-master/app/controllers/ApplicationBoth.java[0m
+[0m[[0mdebug[0m] [0m	controllers/ApplicationReverse.java[0m
+[0m[[0mdebug[0m] [0m	  /Users/nishalmorar/Desktop/woc-master/app/controllers/ApplicationReverse.java[0m
+[0m[[0mdebug[0m] [0m	application.conf[0m
+[0m[[0mdebug[0m] [0m	  /Users/nishalmorar/Desktop/woc-master/conf/application.conf[0m
+[0m[[0mdebug[0m] [0m	controllers/Application.java[0m
+[0m[[0mdebug[0m] [0m	  /Users/nishalmorar/Desktop/woc-master/app/controllers/Application.java[0m
+[0m[[0mdebug[0m] [0m	controllers/ApplicationCompare.java[0m
+[0m[[0mdebug[0m] [0m	  /Users/nishalmorar/Desktop/woc-master/app/controllers/ApplicationCompare.java[0m
+[0m[[0mdebug[0m] [0m	controllers/OWLExistentialReasoner.java[0m
+[0m[[0mdebug[0m] [0m	  /Users/nishalmorar/Desktop/woc-master/app/controllers/OWLExistentialReasoner.java[0m
+[0m[[0minfo[0m] [0mDone packaging.[0m

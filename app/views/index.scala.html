@@ -1,0 +1,70 @@
+@(message: String)
+
+@import helper._
+
+@main(title = "Web Ontology Classifier/Viewer") {
+    
+    <section class="jumbotron">
+	<div class="container">
+     <h2>The Bee Genus Plesianthidium Cameron</h2>
+     
+
+     <p>
+     The southern African bee genus iPlesianthidium Cameron is revised. It comprises twelve species. 
+     Two new species were described, namely Plesianthidium (Spinanthidium) richtersveldensis and 
+     Plesianthidium (Spinanthidium) namaquaensis. Two species names have been removed from synonymy 
+     with volkmanni; namely calvini and rufocaudatum that are here considered to be valid species. 
+     Keys for the identification of the species of Plesianthidium is given.
+	</p>
+	
+
+	<p id="keywords">
+	<b>Key words:</b> Afrotropical, pollinator, pollen collector, southern Africa
+     
+    </p>  
+         <br>
+			    <div class="row">
+				    <div class="col-md-12 col-md-offset-1">
+		 			<img src="@routes.Assets.at("images/im.jpg")" alt="Bee Genus"  height="459" width="459">
+		    	<!-- 	</div>
+ 					<div class="col-md-6"> -->
+		 			<img src="@routes.Assets.at("images/b.jpg")" alt="Bee Genus" height="459" width="459">
+		    		</div>
+
+				</div>	
+    
+</div>
+</section>
+
+<section class="Using">
+<div class="container">
+    <h3>Using The Application:</h3>
+    
+   
+   		<h3><i>@(message)</i></h3>
+   
+	   
+	    <p>This application allows you to load and classify an ontology (subjected to our specific ontology modeling 'hooks')
+	    and perform certain classification queries over the ontology.	    <br>
+	        <br>
+	  By clicking the link 'CLASSIFY and QUERY' in the menu bar, you will be directed to an upload page. Browse for your ontology 
+	  and select it to upload. <br> <br> 
+	  It will now classify the ontology or tell you that the file is of an incorrect format if not a .owl file. <br>
+	  *Please be patient as some large ontologies may take a few minutes to classify.
+	  <br>
+	 <br>
+	 Once classified a page will load with the ontology data. The first column will consist of the Diagnostic Features
+	 and the right column will list the Elements which are associated with some diagnostic features.
+	    <br> <br> 
+	 Make a selection from one of the columns and click the respective Submit button to query the ontology.  
+	   
+	    
+	    </p>
+  
+
+    <p><b>Disclaimer:</b> Please be aware that this application is still in its testing stages and can still be subject to errors.</P>
+    
+</div>
+</section>
+    
+}
