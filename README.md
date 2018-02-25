@@ -8,7 +8,7 @@ Before checking out the source code, make sure that Java (JDK 6 or 7) is install
 Follow the instructions to [install Play Frameworks](http://www.playframework.com/documentation/2.2.x/Installing).
 
 If the intention is to contribute to the project, you will need to check out the latest version of the WOC source code from the repository using [http://git-scm.com/](git), and sync any changes back in to the remote repository. [Git GUIs](http://git-scm.com/downloads/guis) are available to make using git simpler.
-Alternatively, if you'd just like to make use of the application, you can [download the latest source code as a ZIP](https://github.com/jembi/woc/archive/master.zip) or [clone it to your desktop](github-mac://openRepo/https://github.com/jembi/woc).
+Alternatively, if you'd just like to make use of the application, you can download the latest source code as a ZIP or clone it to your desktop from here.
 
 Once the source code has been checked out, and assuming the play script has been added to your PATH:
 ```
