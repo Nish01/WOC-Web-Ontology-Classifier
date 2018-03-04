@@ -34,6 +34,11 @@ Seq[Any](format.raw/*1.19*/("""
     
     <section class="jumbotron">
 	<div class="container">
+
+	<div class="bs-example-bg-classes hidden">
+	<p id = "error" class="bg-info"><i>"""),_display_(Seq[Any](/*11.38*/(message))),format.raw/*11.47*/("""</i></p>
+	</div>
+
      <h2>The Bee Genus Plesianthidium Cameron</h2>
      
 
@@ -53,10 +58,10 @@ Seq[Any](format.raw/*1.19*/("""
          <br>
 			    <div class="row">
 				    <div class="col-md-12 col-md-offset-1">
-		 			<img src=""""),_display_(Seq[Any](/*28.18*/routes/*28.24*/.Assets.at("images/im.jpg"))),format.raw/*28.51*/("""" alt="Bee Genus"  height="459" width="459">
+		 			<img src=""""),_display_(Seq[Any](/*33.18*/routes/*33.24*/.Assets.at("images/im.jpg"))),format.raw/*33.51*/("""" alt="Bee Genus"  height="459" width="459">
 		    	<!-- 	</div>
  					<div class="col-md-6"> -->
-		 			<img src=""""),_display_(Seq[Any](/*31.18*/routes/*31.24*/.Assets.at("images/b.jpg"))),format.raw/*31.50*/("""" alt="Bee Genus" height="459" width="459">
+		 			<img src=""""),_display_(Seq[Any](/*36.18*/routes/*36.24*/.Assets.at("images/b.jpg"))),format.raw/*36.50*/("""" alt="Bee Genus" height="459" width="459">
 		    		</div>
 
 				</div>	
@@ -69,7 +74,7 @@ Seq[Any](format.raw/*1.19*/("""
     <h3>Using The Application:</h3>
     
    
-   		<h3><i>"""),_display_(Seq[Any](/*44.14*/(message))),format.raw/*44.23*/("""</i></h3>
+   		
    
 	   
 	    <p>This application allows you to load and classify an ontology (subjected to our specific ontology modeling 'hooks')
@@ -107,11 +112,11 @@ Seq[Any](format.raw/*1.19*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Sun Feb 25 11:58:23 CAT 2018
+                    DATE: Fri Mar 02 23:12:42 CAT 2018
                     SOURCE: C:/Users/nish/Desktop/s/woc-master 2018/woc-master/app/views/index.scala.html
-                    HASH: 29ffd386b9d5187ca438f98ca365c0250b4aa3f4
-                    MATRIX: 774->1|901->18|929->37|965->39|1019->85|1058->87|1929->922|1944->928|1993->955|2144->1070|2159->1076|2207->1102|2445->1304|2476->1313
-                    LINES: 26->1|30->1|32->4|33->5|33->5|33->5|56->28|56->28|56->28|59->31|59->31|59->31|72->44|72->44
+                    HASH: be28dfa29810c928e0b80c4a37013afeeef543c7
+                    MATRIX: 774->1|901->18|929->37|965->39|1019->85|1058->87|1239->232|1270->241|2096->1031|2111->1037|2160->1064|2311->1179|2326->1185|2374->1211
+                    LINES: 26->1|30->1|32->4|33->5|33->5|33->5|39->11|39->11|61->33|61->33|61->33|64->36|64->36|64->36
                     -- GENERATED --
                 */
             

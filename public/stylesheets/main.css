@@ -3,12 +3,16 @@ html, body {
     font-family: Helvetica, Arial;
     color: #3A4244;
     background: #eeeeee;
+    height: 100%;
+    
 }
 
 #main-wrapper
 {
     padding-top: 45px;
-    
+     min-height:100%;
+   position:relative;
+   min-width:100%;
     /*display: block; 
     
   padding-bottom: 10px;
@@ -54,8 +58,18 @@ section {
     width: 160px;
 }
 
+.bg-info{
+  color: black;
+  padding-left: 50;
+
+}
+
+.bs-example-bg-classes p {
+    padding: 15px;
+}
+
 .buttons {
-    background: #536565;
+    
     padding: 10px;
     margin-top: 30px;
 }
@@ -68,6 +82,19 @@ section {
 }
 .jumbotron p {
   font-size: 21px;
+}
+
+.bluekey{
+color: blue;
+
+}
+.redkey{
+color: red;
+
+}
+.greenkey{
+color: green;
+
 }
 
 #keywords{
@@ -165,7 +192,7 @@ text-decoration: none;
     background: #fff;
     font-size: 12px;
     cursor: pointer;
-    display: inline-block;
+    
     padding: 5px 10px;
     text-decoration: none;
     color: #000;
@@ -202,4 +229,10 @@ ul {
     text-align: center; 
     padding: 20px 20px 20px 20px; 
     color: white;
+  /*   position:absolute;
+   bottom:0;
+   width:100%;
+   height:80px; */  /* Height of the footer */
+  
+
 }

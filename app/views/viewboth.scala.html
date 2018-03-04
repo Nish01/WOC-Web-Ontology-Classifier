@@ -4,79 +4,150 @@ allFeatures: List[String], commonFeatCount: Integer, Restfeaturescount: Integer)
 
 @import helper._
 
-@main(title = "Web Ontology Classifier/Viewer") {
+@main(title = "Web Ontology Classifier") {
     
     
-     <div class="topdiv">
-    	  <div class="leftelement">
-    
-    		<h1 id="container">Diagnostic Features:</h1>
-      
-      
-     		 @form(action = routes.ApplicationBoth.getResults, args = 'id -> "carform") {  
-      
-				<select id="cars" name="cars" multiple="multiple" size="40">
+ <section class="Using">
+		<div class="container">
 
-				@for(index <- 0 until features.size()){
-		    
-				<option value="@features(index)" name="selected">@features(index)</option>
-		
-			}
+			<div class="row">
+				<div class="col-md-6">
+		 			<h3 class="text-uppercase" id="container">Diagnostic Features:</h3>
+     		 			@form(action = routes.ApplicationBoth.getResults, args = 'id -> "carform") {  
       
-      <p class="buttons">
-         
-             <input type="submit">
-      </p>
+							<select id="cars" name="cars" multiple="multiple" size="40" style="max-width:100%">
+							@for(index <- 0 until features.size()){
+		   					<option value="@features(index)" name="selected">@features(index)</option>
+							}
+      
+      				<p><br>
+             			<input class="btn btn-success" type="submit">
+      				</p>
         
-       <p>
-         Count: @(count)
-             
-        </p>
-      }
-      
-      
-      </div>
-      
-    <div class="middleelement">
-     
-      <h1 id="container">Elements:</h1>
-      
-      
-      @form(action = routes.ApplicationBoth.getResultsBoth, args = 'id -> "speciesform") {  
-      
-		<select id="species" name="species" multiple="multiple" size="40">
+			       	<p>
+			         Count: @(count)            
+			        </p>
+      					}
+		 		</div>
 
-		@for(index <- 0 until results.size()){
-		    
-	<option value="@results(index)" name="selected">@results(index)</option>
-		
-		}
+		 		<div class="col-md-6">
+		 			<h3  class="text-uppercase" id="container">Elements:</h3>   
+				      @form(action = routes.ApplicationBoth.getResultsBoth, args = 'id -> "speciesform") {  
+						<select id="species" name="species" multiple="multiple" size="40" style="max-width:100%">
+							@for(index <- 0 until results.size()){
+						   <option value="@results(index)" name="selected">@results(index)</option>
+							}
+							
+				   	   		<p>		<br>	         
+				             <input class="btn btn-success" type="submit">
+				    	  	</p>
+				       
+				     }
+		 		</div>
+			</div>	
 
-   	   	<p class="buttons">
-         
-             <input type="submit">
-    	  </p>
-       
-      }
-     
+			<div class="row">
+				<div class="col-md-6">
+					<h4 class="text-uppercase">Full Description:</h4>
+					<textarea id="tx" rows="3" cols="50" placeholder="The Elements Full Description"></textarea><br>
+					<!-- <input type="text" id="tx" name="tx"> -->
+					<button type="button" class="btn btn-info" id="copyAll" onclick="selectAll()">Select All</button>
+				</div>
+				<div class="col-md-6">
+					<h4 class="text-uppercase">Colour Identification Key:</h4>
+					<ul>				    
+						<li>
+						    <span class="bluekey">Selected/Common Features | Selected/Found Elements</span>	
+						</li>						
+						<li>
+						   <span class="redkey"> Common Features </span>
+						</li>
+						<li>
+							<span class="greenkey">Uncommon features to found elements </span>			
+						</li>			
+					</ul>
+			 		 <button type="button" class="btn btn-info" data-toggle="modal" data-target="#keyInfo">Key Info</button>
+
+			 		 <!-- Modal -->
+					  <div class="modal fade" id="keyInfo" role="dialog">
+					    <div class="modal-dialog">
+					    
+					      <!-- Modal content-->
+					      <div class="modal-content">
+					        <div class="modal-header">
+					          <button type="button" class="close" data-dismiss="modal">&times;</button>
+					          <h4 class="text-uppercase modal-title">Colour Identification Key:</h4>
+					        </div>
+					        <div class="modal-body">
+						    <ul>				    
+								<li>
+								    <span class="bluekey">Blue: </span>Represents the selected/common Features to the found Elements OR the selected/found Elements (in the Elements List).	
+								</li>						
+								<li>
+								   <span class="redkey">Red:</span> Represents all the Elements' common features.
+								</li>
+								<li>
+									<span class="greenkey">Green:</span> Represents all uncommon features to the found elements. 		
+								</li>			
+							</ul>
+					        </div>
+					        <div class="modal-footer">
+					          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					        </div>
+					      </div>
+					      
+					    </div>
+				</div>
+
+					<!-- HIDEN STUFF -->
+					<div hidden>	
+					 <h1>All Features</h1>
+						<ul>
+						@for(index <- 0 until allFeatures.size()){						    
+						    <li>
+						    	<span>@allFeatures(index)</span>
+							</li>						
+						}						
+						</ul>												
+						<h1>Test</h1>				      
+				      	@for(index <- 0 until selected.size()){					  
+						    	<span>@selected(index)</span>	
+						}
+						 
+						<h1>Common Features</h1>
+				      
+				 		<p id="demo"></p>
+				 		<p id="demo2">@beefoundcount</p>
+				 		<p id="featcount">@selectedfeatcount</p>
+				 		<p id="commonFeatCount">@commonFeatCount</p>
+				 		<p id="Restfeaturescount">@Restfeaturescount</p>
+	 		
+				 		<h1>Selected Elements:</h1>
+						<ul>
+
+						@for(index <- 0 until selectedElements.size()){						    
+						    <li>
+						    	<span>@selectedElements(index)</span>
+							</li>						
+						}						
+						</ul>
+						</div>
+
+			</div>		
+
+
 		</div>
-		 
-      <div class="rightelement">
-		    
-		    
-      
- 
-		<h4>Colour Identification Key:</h4>
- 		<p> <span id="bluekey">Blue: </span> Selected/Common Features | Selected/Found Elements</p>
- 		<p><span id="redkey">Red:</span> Common Features </p>
- 		<p><span id="greenkey">Green:</span> Uncommon features to found elements</p>
- 		
- 		<br>
+</section>
+
+
+
+
+    
  		
  		<!-- <h1>@(message)</h1>
-		 -->
+		 
 		
-		<p id="images1" style="visibility: hidden;">
+		 <p id="images1" style="visibility: hidden;">
 		
 		  <img src="@routes.Assets.at("images/21.jpg")" alt="Known distribution of 
 		  Plesianthidium calescens and Plesianthidium richtersveldi" height="228" width="187">
@@ -96,12 +167,7 @@ allFeatures: List[String], commonFeatCount: Integer, Restfeaturescount: Integer)
     
    
 		    </p>
-		    
-		    
-         
-   </div>
-   </div>
-   
+	
   
   
   
@@ -110,79 +176,19 @@ allFeatures: List[String], commonFeatCount: Integer, Restfeaturescount: Integer)
     	  <div class="leftelement">
     	  
     	  
-		<textarea id="tx" rows="4" cols="50">
-
-</textarea>
+		
 	  
 		 </div>
-		  <div class="middleelement" style="display: none;">
-		
-		 <h1>All Features</h1>
-      
-  
-      
-		
-		<ul>
-
-		@for(index <- 0 until allFeatures.size()){
-		    
-		    <li>
-		    	<span>@allFeatures(index)</span>
-			</li>
-		
-		}
-		
-		</ul>
-		
-		
-		<h1>Test</h1>
-      
-      @for(index <- 0 until selected.size()){
-		    
-		  
-		    	<span>@selected(index)</span>
-			
-		
-		}
- 
-      
-		
-		 </div>
-		
-		  <div class="rightelement" style="display: none;">
 		 
-		<h1>Common Features</h1>
-      
- 		<p id="demo"></p>
- 		<p id="demo2">@beefoundcount</p>
- 		<p id="featcount">@selectedfeatcount</p>
- 		<p id="commonFeatCount">@commonFeatCount</p>
- 		<p id="Restfeaturescount">@Restfeaturescount</p>
- 		
- 		
- 		<h1>Selected Elements:</h1>
-		<ul>
 
-		@for(index <- 0 until selectedElements.size()){
-		    
-		    <li>
-		    	<span>@selectedElements(index)</span>
-			</li>
-		
-		}
-		
-		</ul>
- 		
- 		
-	
-		 </div>
-		  </div>  
+		  -->
+		   
 		  
  <script>
 		  
-		  document.getElementById("bluekey").style.color = "blue";
-		  document.getElementById("redkey").style.color = "red";
-		  document.getElementById("greenkey").style.color = "green";
+		  // document.getElementById("bluekey").style.color = "blue";
+		  // document.getElementById("redkey").style.color = "red";
+		  // document.getElementById("greenkey").style.color = "green";
 		  
 		  
 		  var array1 = new Array();
@@ -255,34 +261,36 @@ allFeatures: List[String], commonFeatCount: Integer, Restfeaturescount: Integer)
   			
   				for (i = 0; i < beeFcount; i++) { 
   				  document.getElementById("species").options.item(i).style.color = "blue";
-		  var value = document.getElementById("species").options.item(i).value;
+		//   var value = document.getElementById("species").options.item(i).value;
 		  
-		  if (value == "Plesianthidium_(Spinanthidium)_callescens_(Cockerell)_female" ||
-		  value == "Plesianthidium_(Spinanthidium)_callescens_(Cockerell)_male" ||
-		  value == "Plesianthidium_(Spinanthidium)_richtersveldi_sp.n_male" ||
-		   value == "Plesianthidium_(Spinanthidium)_richtersveldi_sp.n_female")
-		 {
-		 document.getElementById("images1").style.visibility = "visible"; 
-		 }
+		//   if (value == "Plesianthidium_(Spinanthidium)_callescens_(Cockerell)_female" ||
+		//   value == "Plesianthidium_(Spinanthidium)_callescens_(Cockerell)_male" ||
+		//   value == "Plesianthidium_(Spinanthidium)_richtersveldi_sp.n_male" ||
+		//    value == "Plesianthidium_(Spinanthidium)_richtersveldi_sp.n_female")
+		//  {
+		// // document.getElementById("images1").style.visibility = "visible"; 
+		//  }
 		 
-		   if (value == "Plesianthidium_(Spinanthidium)_richtersveldi_sp.n_male" ||
-		   value == "Plesianthidium_(Spinanthidium)_richtersveldi_sp.n_female")
-		 {
-		 document.getElementById("images2").style.visibility = "visible"; 
-		 }
+		//    if (value == "Plesianthidium_(Spinanthidium)_richtersveldi_sp.n_male" ||
+		//    value == "Plesianthidium_(Spinanthidium)_richtersveldi_sp.n_female")
+		//  {
+		//  //document.getElementById("images2").style.visibility = "visible"; 
+		//  }
 		 
 				}
   			
   			}
 
 	document.getElementById("tx").innerHTML = array1;
-	document.getElementById("tx").select();
+	//document.getElementById("tx").select();
 	
 	//	var e = document.getElementById("demo2").innerHTML; 
 	//	var ded = e-220;
 		//document.getElementById("demo").innerHTML = "yes";
 		//document.getElementById("cars").options.item(ded).style.color = "blue";
-		  
+		 
+
+
 		  </script>
    
 

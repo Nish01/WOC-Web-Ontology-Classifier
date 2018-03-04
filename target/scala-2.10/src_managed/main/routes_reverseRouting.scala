@@ -1,6 +1,6 @@
 // @SOURCE:C:/Users/nish/Desktop/s/woc-master 2018/woc-master/conf/routes
-// @HASH:91d11d0475402ebec91c10fcc03f6314f76ce135
-// @DATE:Sat Feb 24 22:41:40 CAT 2018
+// @HASH:a7261b62b3cbae381401e610d1b78b2875091a87
+// @DATE:Sun Mar 04 13:36:48 CAT 2018
 
 import Routes.{prefix => _prefix, defaultPrefix => _defaultPrefix}
 import play.core._
@@ -138,7 +138,7 @@ class ReverseApplicationBoth {
 
 // @LINE:22
 def chooseBoth(): Call = {
-   Call("GET", _prefix + { _defaultPrefix } + "choosefileBoth")
+   Call("GET", _prefix + { _defaultPrefix } + "indexchooseboth")
 }
                                                 
 
@@ -382,7 +382,7 @@ def chooseBoth : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.ApplicationBoth.chooseBoth",
    """
       function() {
-      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "choosefileBoth"})
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "indexchooseboth"})
       }
    """
 )
@@ -598,7 +598,7 @@ class ReverseApplicationBoth {
 
 // @LINE:22
 def chooseBoth(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.ApplicationBoth.chooseBoth(), HandlerDef(this, "controllers.ApplicationBoth", "chooseBoth", Seq(), "GET", """""", _prefix + """choosefileBoth""")
+   controllers.ApplicationBoth.chooseBoth(), HandlerDef(this, "controllers.ApplicationBoth", "chooseBoth", Seq(), "GET", """""", _prefix + """indexchooseboth""")
 )
                       
 

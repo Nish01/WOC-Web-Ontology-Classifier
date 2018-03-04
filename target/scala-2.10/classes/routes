@@ -19,7 +19,7 @@ GET     /choosefile                         controllers.ApplicationReverse.choos
 
 GET     /choosefileCompare			controllers.ApplicationCompare.choosefileCompare()	
 
-GET     /choosefileBoth			controllers.ApplicationBoth.chooseBoth()	
+GET     /indexchooseboth		controllers.ApplicationBoth.chooseBoth()	
 
 POST	/view						controllers.Application.getResults()
 

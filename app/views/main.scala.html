@@ -99,6 +99,28 @@ function topFunction() {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
 }
+
+$(document).ready(function(){
+  // var errText = $(#error).html();
+
+   // if (errText == ) {};
+    // $("#copyAll").click(function(){
+    //      selectAll(); 
+    // });
+   
+});
+
+function selectAll() {
+     alert("Copied Full Description to ClipBoard.");
+     $("#tx").select();
+    document.execCommand('copy');
+}
+
+function loading(){
+   $("#loading").show();
+  return true;
+}
+
 </script>
 <!--TO TOP BUTTON-->
      
